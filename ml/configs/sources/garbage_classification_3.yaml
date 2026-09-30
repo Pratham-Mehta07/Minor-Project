@@ -1,0 +1,44 @@
+# Source dataset definition used by ml/download_dataset.py and ml/prepare_dataset.py.
+#
+# GARBAGE CLASSIFICATION 3, version 2 ("GC1"), exported from Roboflow in COCO
+# format on 2022-07-27 and mirrored on Hugging Face. 10,464 images, 416x416 (stretched).
+name: garbage_classification_3
+prefix: gc3            # prepended to output file names to keep sources distinguishable
+format: coco_zip       # each archive = images + one COCO _annotations.coco.json
+
+license: CC BY 4.0
+attribution: >-
+  "GARBAGE CLASSIFICATION 3" (v2) by Material Identification, Roboflow Universe,
+  https://universe.roboflow.com/material-identification/garbage-classification-3 ,
+  licensed under CC BY 4.0. Mirror: https://huggingface.co/datasets/keremberke/garbage-object-detection
+
+download:
+  # Pinned revision so every machine gets byte-identical data.
+  base_url: https://huggingface.co/datasets/keremberke/garbage-object-detection/resolve/d8ad1490da2686d7af5c6a7f3d8844f0f9542b0f
+  files:
+    - path: data/train.zip
+      sha256: 9b69a508febe33f1b317bb288c768e87ec129598112451c2e8ee40ba3797d17e
+    - path: data/valid.zip
+      sha256: 1d9dbe38f5d291ccd33ee6981c12fe003aea37c0b2a43382ad2a7c492a09c3eb
+    - path: data/test.zip
+      sha256: 31e66c695f3e5a32891a18a60231dfcbf80087af9c7671ac68a260360584b0ab
+    - path: README.roboflow.txt
+    - path: README.dataset.txt
+
+# The published train/valid/test split is heavily skewed by class (e.g. zero
+# glass in test), so all archives are pooled and re-split by prepare_dataset.py.
+archives:
+  - data/train.zip
+  - data/valid.zip
+  - data/test.zip
+
+# Explicit source-class -> canonical-class mapping. Every source class must be
+# listed here or under `drop`; anything else aborts preparation.
+class_map:
+  biodegradable: organic
+  cardboard: cardboard
+  glass: glass
+  metal: metal
+  paper: paper
+  plastic: plastic
+drop: []

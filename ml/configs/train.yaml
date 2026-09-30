@@ -1,0 +1,28 @@
+# Default training configuration for ml/train.py.
+# Any key can be overridden on the command line, e.g.
+#   python ml/train.py --model yolov8n.pt --epochs 50 --batch 8 --name quick_test
+
+model: yolov8s.pt            # COCO-pretrained starting weights (auto-downloaded to models/pretrained/)
+data: datasets/waste/data.yaml
+name: yolov8s_baseline       # run folder: runs/detect/<name>
+
+epochs: 100
+patience: 20                 # early stop after N epochs without val mAP improvement
+imgsz: 640
+batch: 16                    # fits a 6 GB GPU with yolov8s @ 640; use -1 for Ultralytics auto-batch
+device: auto                 # auto = CUDA:0 if available else CPU; or cpu, 0, 0,1
+workers: 0                   # dataloader processes. 0 = load in the main process (~2.7 it/s on an RTX 4050).
+                             # On Windows each worker commits ~1.5 GB and Ultralytics keeps workers*2 extra
+                             # validation workers alive, which exhausted the commit limit on a 16 GB laptop.
+                             # Use 2-4 on Linux/Colab/Kaggle or machines with more RAM.
+seed: 42
+deterministic: true          # reproducible (slightly slower); set false for max speed
+
+# Passed through to Ultralytics model.train() unchanged.
+# See https://docs.ultralytics.com/modes/train/#train-settings
+extra:
+  optimizer: auto
+  cos_lr: false
+  cache: false               # "ram" is faster but needs ~10 GB free RAM for this dataset
+  amp: true
+  plots: true

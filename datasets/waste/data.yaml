@@ -1,0 +1,18 @@
+# WasteWise AI - YOLO detection dataset (6 canonical classes).
+#
+# There is deliberately no `path:` key: the dataset root is this file's folder.
+# The ML scripts resolve it to an absolute path at runtime, so the same file
+# works on Windows, Colab and Kaggle. Class order must match
+# backend/app/ml/label_map.py (checked by ml/verify_dataset.py).
+train: images/train
+val: images/val
+test: images/test
+
+nc: 6
+names:
+  0: plastic
+  1: paper
+  2: glass
+  3: metal
+  4: cardboard
+  5: organic

@@ -1,0 +1,14 @@
+# Backend runtime dependencies. Includes the ML requirements because the
+# API runs YOLO inference in-process.
+-r ../ml/requirements.txt
+
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30
+pydantic>=2.7,<3.0
+pydantic-settings>=2.3
+python-multipart>=0.0.9
+
+# Persistence (used from Stage 9)
+sqlalchemy>=2.0.30
+alembic>=1.13
+psycopg[binary]>=3.2

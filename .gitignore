@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Secrets
+.env
+!.env.example
+
+# Raw TACO download in the project root
+/data/
+
+# Datasets: keep only the directory layout and config, never the images/labels
+datasets/**
+!datasets/**/
+!datasets/**/.gitkeep
+!datasets/**/data.yaml
+!datasets/README.md
+!datasets/waste/manifest.csv
+!datasets/waste/dataset_report.json
+*.cache
+
+# Model weights and training/evaluation outputs
+*.pt
+*.onnx
+models/*
+!models/README.md
+runs/
+outputs/
+
+# Cloud training bundles (ml/package_for_cloud.py) and downloaded results
+dist/
+wastewise_results.zip
+
+# Uploaded images from the API
+uploads/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+
+# Local demo photos
+demo_images/

@@ -1,0 +1,318 @@
+{
+  "created_at": "2026-09-29T17:53:44+00:00",
+  "classes": [
+    "plastic",
+    "paper",
+    "glass",
+    "metal",
+    "cardboard",
+    "organic"
+  ],
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.2,
+    "test": 0.1
+  },
+  "sources": [
+    {
+      "name": "garbage_classification_3",
+      "config": "ml/configs/sources/garbage_classification_3.yaml",
+      "license": "CC BY 4.0",
+      "attribution": "\"GARBAGE CLASSIFICATION 3\" (v2) by Material Identification, Roboflow Universe, https://universe.roboflow.com/material-identification/garbage-classification-3 , licensed under CC BY 4.0. Mirror: https://huggingface.co/datasets/keremberke/garbage-object-detection",
+      "max_image_size": null,
+      "class_map": {
+        "biodegradable": "organic",
+        "cardboard": "cardboard",
+        "glass": "glass",
+        "metal": "metal",
+        "paper": "paper",
+        "plastic": "plastic"
+      },
+      "drop": []
+    },
+    {
+      "name": "taco",
+      "config": "ml/configs/sources/taco.yaml",
+      "license": "See https://github.com/pedropro/TACO (images originate from Flickr under their original licences)",
+      "attribution": "Pedro F. Proen\u00e7a and Pedro Sim\u00f5es, \"TACO: Trash Annotations in Context for Litter Detection\", arXiv:2003.06975, 2020. https://github.com/pedropro/TACO",
+      "max_image_size": 1280,
+      "class_map": {
+        "other plastic bottle": "plastic",
+        "clear plastic bottle": "plastic",
+        "plastic bottle cap": "plastic",
+        "disposable plastic cup": "plastic",
+        "other plastic cup": "plastic",
+        "foam cup": "plastic",
+        "plastic lid": "plastic",
+        "other plastic": "plastic",
+        "plastic film": "plastic",
+        "six pack rings": "plastic",
+        "garbage bag": "plastic",
+        "other plastic wrapper": "plastic",
+        "single-use carrier bag": "plastic",
+        "polypropylene bag": "plastic",
+        "crisp packet": "plastic",
+        "spread tub": "plastic",
+        "tupperware": "plastic",
+        "disposable food container": "plastic",
+        "foam food container": "plastic",
+        "other plastic container": "plastic",
+        "plastic glooves": "plastic",
+        "plastic utensils": "plastic",
+        "plastic straw": "plastic",
+        "styrofoam piece": "plastic",
+        "paper cup": "paper",
+        "magazine paper": "paper",
+        "wrapping paper": "paper",
+        "normal paper": "paper",
+        "paper bag": "paper",
+        "paper straw": "paper",
+        "toilet tube": "cardboard",
+        "other carton": "cardboard",
+        "egg carton": "cardboard",
+        "corrugated carton": "cardboard",
+        "meal carton": "cardboard",
+        "pizza box": "cardboard",
+        "glass bottle": "glass",
+        "broken glass": "glass",
+        "glass cup": "glass",
+        "glass jar": "glass",
+        "aluminium foil": "metal",
+        "metal bottle cap": "metal",
+        "food can": "metal",
+        "aerosol": "metal",
+        "drink can": "metal",
+        "metal lid": "metal",
+        "pop tab": "metal",
+        "scrap metal": "metal",
+        "food waste": "organic"
+      },
+      "drop": [
+        "aluminium blister pack",
+        "battery",
+        "carded blister pack",
+        "cigarette",
+        "drink carton",
+        "plastified paper bag",
+        "rope & strings",
+        "shoe",
+        "squeezable tube",
+        "tissues",
+        "unlabeled litter"
+      ]
+    }
+  ],
+  "total_images": 11963,
+  "duplicates_removed": 1,
+  "degenerate_boxes_removed": 17,
+  "dropped_boxes_by_label": {
+    "taco:Aluminium blister pack": 6,
+    "taco:Battery": 2,
+    "taco:Carded blister pack": 1,
+    "taco:Cigarette": 667,
+    "taco:Drink carton": 45,
+    "taco:Rope & strings": 29,
+    "taco:Shoe": 7,
+    "taco:Squeezable tube": 7,
+    "taco:Tissues": 42,
+    "taco:Unlabeled litter": 517
+  },
+  "splits": {
+    "train": {
+      "images": 8374,
+      "background_images": 40,
+      "boxes": 54321,
+      "images_per_class": {
+        "plastic": 1815,
+        "paper": 1350,
+        "glass": 1952,
+        "metal": 1529,
+        "cardboard": 1160,
+        "organic": 1611
+      },
+      "boxes_per_class": {
+        "plastic": 5395,
+        "paper": 3238,
+        "glass": 5549,
+        "metal": 4522,
+        "cardboard": 3407,
+        "organic": 32210
+      }
+    },
+    "val": {
+      "images": 2391,
+      "background_images": 12,
+      "boxes": 14765,
+      "images_per_class": {
+        "plastic": 522,
+        "paper": 384,
+        "glass": 558,
+        "metal": 439,
+        "cardboard": 333,
+        "organic": 454
+      },
+      "boxes_per_class": {
+        "plastic": 1724,
+        "paper": 857,
+        "glass": 1837,
+        "metal": 1306,
+        "cardboard": 990,
+        "organic": 8051
+      }
+    },
+    "test": {
+      "images": 1198,
+      "background_images": 6,
+      "boxes": 8447,
+      "images_per_class": {
+        "plastic": 259,
+        "paper": 189,
+        "glass": 269,
+        "metal": 216,
+        "cardboard": 164,
+        "organic": 229
+      },
+      "boxes_per_class": {
+        "plastic": 1070,
+        "paper": 496,
+        "glass": 677,
+        "metal": 557,
+        "cardboard": 505,
+        "organic": 5142
+      }
+    }
+  },
+  "splits_by_source": {
+    "garbage_classification_3": {
+      "train": {
+        "images": 7325,
+        "background_images": 0,
+        "boxes": 51888,
+        "images_per_class": {
+          "plastic": 1025,
+          "paper": 1238,
+          "glass": 1886,
+          "metal": 1329,
+          "cardboard": 1050,
+          "organic": 1606
+        },
+        "boxes_per_class": {
+          "plastic": 3792,
+          "paper": 3086,
+          "glass": 5386,
+          "metal": 4161,
+          "cardboard": 3259,
+          "organic": 32204
+        }
+      },
+      "val": {
+        "images": 2092,
+        "background_images": 0,
+        "boxes": 14056,
+        "images_per_class": {
+          "plastic": 293,
+          "paper": 355,
+          "glass": 539,
+          "metal": 380,
+          "cardboard": 303,
+          "organic": 453
+        },
+        "boxes_per_class": {
+          "plastic": 1291,
+          "paper": 821,
+          "glass": 1782,
+          "metal": 1162,
+          "cardboard": 950,
+          "organic": 8050
+        }
+      },
+      "test": {
+        "images": 1047,
+        "background_images": 0,
+        "boxes": 8129,
+        "images_per_class": {
+          "plastic": 146,
+          "paper": 175,
+          "glass": 259,
+          "metal": 189,
+          "cardboard": 149,
+          "organic": 228
+        },
+        "boxes_per_class": {
+          "plastic": 862,
+          "paper": 480,
+          "glass": 641,
+          "metal": 518,
+          "cardboard": 487,
+          "organic": 5141
+        }
+      }
+    },
+    "taco": {
+      "train": {
+        "images": 1049,
+        "background_images": 40,
+        "boxes": 2433,
+        "images_per_class": {
+          "plastic": 790,
+          "paper": 112,
+          "glass": 66,
+          "metal": 200,
+          "cardboard": 110,
+          "organic": 5
+        },
+        "boxes_per_class": {
+          "plastic": 1603,
+          "paper": 152,
+          "glass": 163,
+          "metal": 361,
+          "cardboard": 148,
+          "organic": 6
+        }
+      },
+      "val": {
+        "images": 299,
+        "background_images": 12,
+        "boxes": 709,
+        "images_per_class": {
+          "plastic": 229,
+          "paper": 29,
+          "glass": 19,
+          "metal": 59,
+          "cardboard": 30,
+          "organic": 1
+        },
+        "boxes_per_class": {
+          "plastic": 433,
+          "paper": 36,
+          "glass": 55,
+          "metal": 144,
+          "cardboard": 40,
+          "organic": 1
+        }
+      },
+      "test": {
+        "images": 151,
+        "background_images": 6,
+        "boxes": 318,
+        "images_per_class": {
+          "plastic": 113,
+          "paper": 14,
+          "glass": 10,
+          "metal": 27,
+          "cardboard": 15,
+          "organic": 1
+        },
+        "boxes_per_class": {
+          "plastic": 208,
+          "paper": 16,
+          "glass": 36,
+          "metal": 39,
+          "cardboard": 18,
+          "organic": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+# TACO - Trash Annotations in Context (official annotations, 2019-12-19).
+# 1,500 real-world litter photos (outdoor ground/beach/street scenes), 4,784
+# annotations in 60 categories. Adds realistic, cluttered backgrounds that the
+# product-photo style GARBAGE CLASSIFICATION 3 data lacks.
+name: taco
+prefix: taco
+format: coco_dir
+root: data                       # project-relative folder containing batch_*/ and annotations.json
+annotation_file: annotations.json
+# Photos are up to 6000 px. Apply EXIF orientation (annotations are in the
+# EXIF-corrected frame), then store at <= 1280 px so small litter survives.
+max_image_size: 1280
+
+license: See https://github.com/pedropro/TACO (images originate from Flickr under their original licences)
+attribution: >-
+  Pedro F. Proença and Pedro Simões, "TACO: Trash Annotations in Context for
+  Litter Detection", arXiv:2003.06975, 2020. https://github.com/pedropro/TACO
+
+# Mapping is by MATERIAL, matching the six canonical classes. Categories whose
+# material is mixed, not one of the six, or not waste-stream relevant are
+# dropped explicitly (their objects stay in the image as unlabelled background).
+class_map:
+  # plastic
+  other plastic bottle: plastic
+  clear plastic bottle: plastic
+  plastic bottle cap: plastic
+  disposable plastic cup: plastic
+  other plastic cup: plastic
+  foam cup: plastic                    # expanded polystyrene
+  plastic lid: plastic
+  other plastic: plastic
+  plastic film: plastic
+  six pack rings: plastic
+  garbage bag: plastic
+  other plastic wrapper: plastic
+  single-use carrier bag: plastic
+  polypropylene bag: plastic
+  crisp packet: plastic
+  spread tub: plastic
+  tupperware: plastic
+  disposable food container: plastic
+  foam food container: plastic         # expanded polystyrene
+  other plastic container: plastic
+  plastic glooves: plastic             # (sic) TACO spelling
+  plastic utensils: plastic
+  plastic straw: plastic
+  styrofoam piece: plastic             # expanded polystyrene
+  # paper
+  paper cup: paper
+  magazine paper: paper
+  wrapping paper: paper
+  normal paper: paper
+  paper bag: paper
+  paper straw: paper
+  # cardboard
+  toilet tube: cardboard
+  other carton: cardboard
+  egg carton: cardboard
+  corrugated carton: cardboard
+  meal carton: cardboard
+  pizza box: cardboard
+  # glass
+  glass bottle: glass
+  broken glass: glass
+  glass cup: glass
+  glass jar: glass
+  # metal
+  aluminium foil: metal
+  metal bottle cap: metal
+  food can: metal
+  aerosol: metal
+  drink can: metal
+  metal lid: metal
+  pop tab: metal
+  scrap metal: metal
+  # organic
+  food waste: organic
+
+drop:
+  - battery                   # hazardous, not one of the six classes
+  - aluminium blister pack    # plastic/aluminium composite
+  - carded blister pack       # plastic/card composite
+  - drink carton              # Tetra Pak composite (paperboard + plastic + aluminium)
+  - plastified paper bag      # composite, 0 annotations
+  - tissues                   # soiled paper, not recyclable paper
+  - squeezable tube           # mixed material
+  - rope & strings            # textile
+  - shoe                      # textile/leather
+  - unlabeled litter          # unknown material
+  - cigarette                 # not one of the six classes

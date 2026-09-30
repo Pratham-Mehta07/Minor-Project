@@ -1,0 +1,9 @@
+# ML pipeline dependencies (training, evaluation, prediction).
+#
+# Install PyTorch FIRST with the command for your platform (see README),
+# otherwise pip may pull the CPU-only build on Windows.
+# On Google Colab / Kaggle, PyTorch is preinstalled - just install this file.
+
+ultralytics>=8.3.0,<9.0
+pyyaml>=6.0
+pillow>=10.3
